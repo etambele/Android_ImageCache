@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     protected void createImageFolder(){
         File storageDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         fileGallaryFolder = new File(storageDirectory, IMAGE_FOLDER);
-            if(!fileGallaryFolder.exists()){
+        if(!fileGallaryFolder.exists()){
             fileGallaryFolder.mkdirs();
         }
     }
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getPermission() {
         if ((ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED) || (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED)) {
-                ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE},MY_PERMISSIONS_REQUEST_SAVE);
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE},MY_PERMISSIONS_REQUEST_SAVE);
         }
     }
 

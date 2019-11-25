@@ -54,10 +54,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         File imageFile = imagesFile.listFiles()[position];
-        // Bitmap imageBitmap = BitmapFactory.decodeFile(imageFile.getAbsolutePath());
-        // holder.getImageView().setImageBitmap(imageBitmap);
-        // BackGroundImageTask imageTask = new BackGroundImageTask(holder.getImageView());
-        // imageTask.execute(imageFile);
         Bitmap bitmap = MainActivity.getBitmapFromMemoryCache(imageFile.getName());
         if(bitmap != null){
             holder.getImageView().setImageBitmap(bitmap);

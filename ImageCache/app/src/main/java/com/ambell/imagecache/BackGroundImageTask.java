@@ -12,7 +12,7 @@ public class BackGroundImageTask extends AsyncTask<File, Void, Bitmap> {
 
     WeakReference<ImageView> imageViewRef;
     final static int IMAGE_VIEW_WIDTH = 200;
-    final static int IMAAGE_VIEW_HEIGHT = 200;
+    final static int IMAGE_VIEW_HEIGHT = 200;
     private File imageFile;
 
     public BackGroundImageTask(ImageView imageView){
@@ -20,9 +20,7 @@ public class BackGroundImageTask extends AsyncTask<File, Void, Bitmap> {
     }
     @Override
     protected Bitmap doInBackground(File... files) {
-       // return BitmapFactory.decodeFile(files[0].getAbsolutePath());
         imageFile = files[0];
-        ///return decodeBitmapFromFile(files[0]);
         Bitmap bitmap = decodeBitmapFromFile(imageFile);
         MainActivity.setBitmapToMemoryCache(imageFile.getName(), bitmap);
         return bitmap;
@@ -53,11 +51,11 @@ public class BackGroundImageTask extends AsyncTask<File, Void, Bitmap> {
         final int photoHeight = bmOptions.outHeight;
         int scaleFactor = 1;
 
-        if(photoWidth > IMAGE_VIEW_WIDTH || photoHeight > IMAAGE_VIEW_HEIGHT) {
+        if(photoWidth > IMAGE_VIEW_WIDTH || photoHeight > IMAGE_VIEW_HEIGHT) {
             final int halfPhotoWidth = photoWidth/2;
             final int halfPhotoHeight = photoHeight/2;
             while(halfPhotoWidth/scaleFactor > IMAGE_VIEW_WIDTH
-                    || halfPhotoHeight/scaleFactor > IMAAGE_VIEW_HEIGHT) {
+                    || halfPhotoHeight/scaleFactor > IMAGE_VIEW_HEIGHT) {
                 scaleFactor *= 2;
             }
         }
